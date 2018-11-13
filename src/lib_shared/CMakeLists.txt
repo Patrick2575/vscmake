@@ -22,6 +22,14 @@ add_definitions(-DEXPMODULE)
 include_directories(${CMAKE_SOURCE_DIR}/lib_util)
 include_directories(${CMAKE_SOURCE_DIR}/global)
 
+# Add linking directories :
+#-------------------------
+# Directories can be added to the list of linking directories using the command link_directories
+# link_directories(directory1 directory2 ...)
+# The directories specified with the link_directories are applied only to targets created after the command. 
+# Therefore it is important to use this command before add_library or add_executable
+link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
+
 # create this target:
 #-------------------
 # You can add libraries to the build using the add_library  command
@@ -41,15 +49,6 @@ include_directories(${CMAKE_SOURCE_DIR}/global)
 file(GLOB headers "*.h") # gather all .h files in directory into  headers variable
 file(GLOB sources "*.cpp") # gather all .cpp files in directory into  sources variable
 add_library(libshared SHARED ${headers} ${sources}) # add a target with name 'libutil'
-
-# Add linking directories :
-#-------------------------
-# Directories can be added to the list of linking directories using the command link_directories
-# link_directories(directory1 directory2 ...)
-# The directories specified with the link_directories are applied only to targets created after the command. 
-# Therefore it is important to use this command before add_library or add_executable
-
-link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
 # linking with libraries :
 #------------------------

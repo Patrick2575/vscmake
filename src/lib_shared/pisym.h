@@ -1,11 +1,17 @@
 #pragma once
 
-#include "random.h"
+#include "libdef.h"
+#include <memory>
+
+class Random;
 
 class EXPORT_SYMBOL piMonteCarloSimulation
 {
-   Random rnd;
 public:
    piMonteCarloSimulation();
+   ~piMonteCarloSimulation();
    double aproxPi();
+
+private:
+	std::unique_ptr<Random> m_rnd;
 };

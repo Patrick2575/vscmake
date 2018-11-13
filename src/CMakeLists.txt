@@ -19,10 +19,10 @@ cmake_minimum_required(VERSION 3.8)
 #  - CMAKE_LIBRARY_OUTPUT_DIRECTORY: where to put the library file(s) when built ( here library file  means a loaddble module .dll/.so )
 #  - CMAKE_RUNTIME_OUTPUT_DIRECTORY: where to put the runtime file(s) when built ( here runtime file  means an exutable file like a  .exe)
 
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} /EHc /std::c++latest)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/../bin") 
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY, "${CMAKE_SOURCE_DIR}/../bin")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/../bin")
+set(CMAKE_CXX_FLAGS /std:c++latest)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY  "${CMAKE_SOURCE_DIR}/../bin") 
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  "${CMAKE_SOURCE_DIR}/../bin")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  "${CMAKE_SOURCE_DIR}/../bin")
 
 # Adding subdirectories:
 #-----------------------

@@ -1,10 +1,13 @@
 #include "pisym.h"
+#include "random.h"
 
 piMonteCarloSimulation::piMonteCarloSimulation()
-   :rnd(std::optional<int>{})
+   :m_rnd( std::make_unique<Random>(std::optional<int>{}))
 {
 
 }
+
+piMonteCarloSimulation::~piMonteCarloSimulation() {}
 
 double piMonteCarloSimulation::aproxPi()
 {
@@ -16,8 +19,8 @@ double piMonteCarloSimulation::aproxPi()
 
    for (auto i = 0; i<Samples; i++)
    {
-      x = rnd.NextDouble();
-      y = rnd.NextDouble();
+      x = m_rnd->NextDouble();
+      y = m_rnd->NextDouble();
 
       if (y <= std::sqrt(1 - std::pow(x, 2))) hit += 1;
    }
